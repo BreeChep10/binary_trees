@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void binary_tree_levelorder_helper(const binary_tree_t *tree, void (*func)(int));
+void binary_levelorder_helper(const binary_tree_t *tree, void (*func)(int));
 
 /**
  * binary_tree_levelorder - Perform level-order traversal of a binary tree
@@ -16,17 +16,17 @@ void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 	if (tree == NULL || func == NULL)
 		return;
 
-	binary_tree_levelorder_helper(tree, func);
+	binary_levelorder_helper(tree, func);
 }
 
 /**
- * binary_tree_levelorder_helper - Helper function for level-order traversal
+ * binary_levelorder_helper - Helper function for level-order traversal
  * @tree: Current node being examined
  * @func: Pointer to the function to call for each node's value
  *
  * Description: This function performs level-order traversal using a queue.
  */
-void binary_tree_levelorder_helper(const binary_tree_t *tree, void (*func)(int))
+void binary_levelorder_helper(const binary_tree_t *tree, void (*func)(int))
 {
 	binary_tree_t *queue[4096];
 	int front = 0, rear = 0;
@@ -47,6 +47,5 @@ void binary_tree_levelorder_helper(const binary_tree_t *tree, void (*func)(int))
 
 		if (current->right)
 			queue[rear++] = current->right;
-    }
+	}
 }
-
